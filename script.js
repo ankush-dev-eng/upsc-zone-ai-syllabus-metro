@@ -248,12 +248,13 @@ document.addEventListener('DOMContentLoaded', () => {
       progressBar.style.width = `${clampedPercent}%`;
     }
     if (trainIndicator) {
-      if (scrollTop > 0) {
+      if (scrollTop > 30) {
         trainIndicator.classList.add('visible');
       } else {
         trainIndicator.classList.remove('visible');
       }
-      trainIndicator.style.left = `${clampedPercent}%`;
+      const safePercent = Math.max(3, Math.min(clampedPercent, 97));
+      trainIndicator.style.left = `${safePercent}%`;
     }
 
     // Trigger SVG map lines draw once journey section nears viewport
