@@ -1,0 +1,12 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary backups during progressive commit reconstruction
+*.final.*
+*.backup.*
+*.tmp
+
+# Logs
+*.log

@@ -1,0 +1,79 @@
+/* ==========================================================================
+   UPSC ZONE AI — THE SYLLABUS METRO
+   Design System Tokens & Concourse Base
+   ========================================================================== */
+
+:root {
+  /* Concourse Palette */
+  --color-ink-navy: #0F1B33;
+  --color-surface-dark: #080D1A;
+  --color-surface-card: #13223F;
+  --color-surface-hover: #17294D;
+  --color-surface-glass: rgba(15, 27, 51, 0.75);
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+
+  /* Contrast / Editorial */
+  --color-paper-cream: #F8F3E8;
+  --color-paper-muted: #D1C7B7;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+
+  /* Transit Corridors */
+  --color-line-prelims: #F59E0B;     /* Line 1: Saffron Express */
+  --color-line-mains: #38BDF8;       /* Line 2: Sapphire Corridor */
+  --color-line-interview: #0E9F8E;   /* Line 3: Emerald Personality */
+  --color-signal-clear: #10B981;
+  --color-signal-hold: #EF4444;
+
+  /* Typography */
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Layout */
+  --concourse-max-width: 1240px;
+  --nav-height: 72px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface-dark);
+  color: var(--color-text-primary);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.metro-concourse {
+  background: radial-gradient(circle at 50% 0%, #17294D 0%, #080D1A 60%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-line-mains);
+}
