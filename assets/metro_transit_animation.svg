@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="100%" height="360" style="background:#080d1a; border-radius:16px; font-family:'Inter', -apple-system, sans-serif; overflow:hidden;">
+  <defs>
+    <!-- Dark Radial Gradients for Background Atmosphere -->
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#17294d" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#080d1a" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Track Glowing Filters -->
+    <filter id="glowSaffron" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#f59e0b" flood-opacity="0.8"/>
+    </filter>
+    <filter id="glowSapphire" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#38bdf8" flood-opacity="0.8"/>
+    </filter>
+    <filter id="glowEmerald" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#10b981" flood-opacity="0.8"/>
+    </filter>
+    <filter id="glowWhite" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#ffffff" flood-opacity="0.9"/>
+    </filter>
+
+    <!-- Track Gradients -->
+    <linearGradient id="saffronGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="sapphireGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    /* Continuous Pulse Animation for Stations */
+    @keyframes stationPulse {
+      0%, 100% { r: 8px; opacity: 1; }
+      50% { r: 12px; opacity: 0.5; }
+    }
+    @keyframes pingRing {
+      0% { r: 8px; opacity: 0.8; stroke-width: 2px; }
+      100% { r: 24px; opacity: 0; stroke-width: 0.5px; }
+    }
+    @keyframes trackDash {
+      to { stroke-dashoffset: -40; }
+    }
+    @keyframes signalBlink {
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 6px #10b981); }
+      50% { opacity: 0.3; filter: none; }
+    }
+    @keyframes trainTravel {
+      0% { transform: translateX(80px) translateY(120px); }
+      30% { transform: translateX(340px) translateY(120px); }
+      35% { transform: translateX(410px) translateY(170px); }
+      65% { transform: translateX(620px) translateY(220px); }
+      70% { transform: translateX(690px) translateY(260px); }
+      100% { transform: translateX(850px) translateY(260px); }
+    }
+    @keyframes trainTravelReverse {
+      0% { offset-distance: 0%; }
+      50% { offset-distance: 100%; }
+      100% { offset-distance: 0%; }
+    }
+    .pulsing-ring {
+      animation: pingRing 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+      transform-origin: center;
+    }
+    .dash-flow {
+      stroke-dasharray: 6 6;
+      animation: trackDash 1.2s linear infinite;
+    }
+    .signal-light {
+      animation: signalBlink 1.6s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Deep Concourse Background -->
+  <rect width="960" height="360" fill="url(#bgGlow)"/>
+
+  <!-- Subtle Blueprint Grid -->
+  <g stroke="#1e293b" stroke-width="0.7" opacity="0.35">
+    <line x1="0" y1="60" x2="960" y2="60"/>
+    <line x1="0" y1="120" x2="960" y2="120"/>
+    <line x1="0" y1="180" x2="960" y2="180"/>
+    <line x1="0" y1="240" x2="960" y2="240"/>
+    <line x1="0" y1="300" x2="960" y2="300"/>
+    <line x1="160" y1="0" x2="160" y2="360"/>
+    <line x1="320" y1="0" x2="320" y2="360"/>
+    <line x1="480" y1="0" x2="480" y2="360"/>
+    <line x1="640" y1="0" x2="640" y2="360"/>
+    <line x1="800" y1="0" x2="800" y2="360"/>
+  </g>
+
+  <!-- Top Telemetry Header Bar -->
+  <g id="telemetryHeader">
+    <rect x="24" y="16" width="912" height="38" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    <circle cx="44" cy="35" r="5" fill="#10b981" class="signal-light"/>
+    <text x="60" y="39" fill="#94a3b8" font-size="11" font-weight="600" letter-spacing="1.5">UPSC ZONE AI • LIVE TRANSIT TELEMETRY</text>
+    <rect x="360" y="24" width="240" height="22" rx="4" fill="#1e293b"/>
+    <text x="375" y="39" fill="#38bdf8" font-size="11" font-weight="700" letter-spacing="1">SIGNAL CLEAR • 100% SYLLABUS MAPPED</text>
+    <text x="820" y="39" fill="#f59e0b" font-size="11" font-weight="700" font-family="'JetBrains Mono', monospace">MAY 24, 2026</text>
+  </g>
+
+  <!-- Metro Line 1: Prelims Express (Saffron) -->
+  <g id="prelimsLine">
+    <!-- Glow Underlay -->
+    <path d="M 80,120 L 360,120 C 420,120 460,180 520,180 L 850,180" fill="none" stroke="#f59e0b" stroke-width="8" opacity="0.3" filter="url(#glowSaffron)"/>
+    <!-- Main Solid Track -->
+    <path d="M 80,120 L 360,120 C 420,120 460,180 520,180 L 850,180" fill="none" stroke="url(#saffronGrad)" stroke-width="4" stroke-linecap="round"/>
+    <!-- Animated Flow Dash -->
+    <path d="M 80,120 L 360,120 C 420,120 460,180 520,180 L 850,180" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.6" class="dash-flow"/>
+  </g>
+
+  <!-- Metro Line 2: Mains Corridor (Sapphire) -->
+  <g id="mainsLine">
+    <path d="M 180,220 L 400,220 C 460,220 500,180 560,180 L 850,180" fill="none" stroke="#38bdf8" stroke-width="8" opacity="0.25" filter="url(#glowSapphire)"/>
+    <path d="M 180,220 L 400,220 C 460,220 500,180 560,180 L 850,180" fill="none" stroke="url(#sapphireGrad)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 180,220 L 400,220 C 460,220 500,180 560,180 L 850,180" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.6" class="dash-flow"/>
+  </g>
+
+  <!-- Metro Line 3: Personality Line (Emerald) -->
+  <g id="interviewLine">
+    <path d="M 520,180 C 580,180 620,270 680,270 L 850,270" fill="none" stroke="#10b981" stroke-width="8" opacity="0.25" filter="url(#glowEmerald)"/>
+    <path d="M 520,180 C 580,180 620,270 680,270 L 850,270" fill="none" stroke="url(#emeraldGrad)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 520,180 C 580,180 620,270 680,270 L 850,270" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.6" class="dash-flow"/>
+  </g>
+
+  <!-- Station 1: AI Mocks (Prelims) -->
+  <g transform="translate(140, 120)">
+    <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2" class="pulsing-ring"/>
+    <circle cx="0" cy="0" r="8" fill="#080d1a" stroke="#f59e0b" stroke-width="3"/>
+    <circle cx="0" cy="0" r="3" fill="#f59e0b"/>
+    <rect x="-55" y="-36" width="110" height="20" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+    <text x="0" y="-22" fill="#f8fafc" font-size="10" font-weight="700" text-anchor="middle">STN 01 • AI MOCKS</text>
+  </g>
+
+  <!-- Station 2: Current Affairs Junction (Prelims) -->
+  <g transform="translate(320, 120)">
+    <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2" class="pulsing-ring"/>
+    <circle cx="0" cy="0" r="8" fill="#080d1a" stroke="#f59e0b" stroke-width="3"/>
+    <circle cx="0" cy="0" r="3" fill="#f59e0b"/>
+    <rect x="-65" y="-36" width="130" height="20" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+    <text x="0" y="-22" fill="#f8fafc" font-size="10" font-weight="700" text-anchor="middle">STN 02 • CURRENT AFFAIRS</text>
+  </g>
+
+  <!-- Station 3: Smart Notes (Mains) -->
+  <g transform="translate(240, 220)">
+    <circle cx="0" cy="0" r="14" fill="#38bdf8" opacity="0.2" class="pulsing-ring"/>
+    <circle cx="0" cy="0" r="8" fill="#080d1a" stroke="#38bdf8" stroke-width="3"/>
+    <circle cx="0" cy="0" r="3" fill="#38bdf8"/>
+    <rect x="-60" y="16" width="120" height="20" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1"/>
+    <text x="0" y="30" fill="#f8fafc" font-size="10" font-weight="700" text-anchor="middle">STN 03 • SMART NOTES</text>
+  </g>
+
+  <!-- Central Inter-Corridor Station: PYQ MATRIX & ANSWER WRITING -->
+  <g transform="translate(560, 180)">
+    <circle cx="0" cy="0" r="20" fill="#38bdf8" opacity="0.2" class="pulsing-ring"/>
+    <circle cx="0" cy="0" r="11" fill="#080d1a" stroke="#ffffff" stroke-width="3" filter="url(#glowWhite)"/>
+    <circle cx="0" cy="0" r="5" fill="#38bdf8"/>
+    <rect x="-75" y="-40" width="150" height="22" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
+    <text x="0" y="-25" fill="#ffffff" font-size="10.5" font-weight="800" text-anchor="middle">STN 04 • PYQ &amp; EVALUATOR</text>
+  </g>
+
+  <!-- Station 5: Interview Simulator (Emerald) -->
+  <g transform="translate(710, 270)">
+    <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2" class="pulsing-ring"/>
+    <circle cx="0" cy="0" r="8" fill="#080d1a" stroke="#10b981" stroke-width="3"/>
+    <circle cx="0" cy="0" r="3" fill="#10b981"/>
+    <rect x="-65" y="16" width="130" height="20" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+    <text x="0" y="30" fill="#f8fafc" font-size="10" font-weight="700" text-anchor="middle">STN 05 • DAF INTERVIEW</text>
+  </g>
+
+  <!-- Final Terminus: DHOLPUR HOUSE -->
+  <g transform="translate(850, 180)">
+    <!-- Terminus Octagon / Distinctive Shield -->
+    <rect x="-14" y="-14" width="28" height="28" rx="6" fill="#f59e0b" filter="url(#glowSaffron)"/>
+    <rect x="-10" y="-10" width="20" height="20" rx="4" fill="#080d1a"/>
+    <circle cx="0" cy="0" r="4" fill="#f59e0b"/>
+    <rect x="-80" y="-44" width="160" height="24" rx="5" fill="#f59e0b"/>
+    <text x="0" y="-28" fill="#080d1a" font-size="11" font-weight="900" text-anchor="middle" letter-spacing="1">DHOLPUR TERMINUS</text>
+    <text x="0" y="30" fill="#94a3b8" font-size="9" font-weight="600" text-anchor="middle">FINAL DESTINATION • IAS / IPS / IFS</text>
+  </g>
+
+  <!-- Animated Metro Train (Travels Along Path via CSS) -->
+  <g id="activeMetroTrain">
+    <path id="guidePath" d="M 80,120 L 360,120 C 420,120 460,180 520,180 L 850,180" fill="none" stroke="none"/>
+    <g>
+      <animateMotion dur="8s" repeatCount="indefinite" path="M 80,120 L 360,120 C 420,120 460,180 520,180 L 850,180" rotate="auto"/>
+      <!-- Train Car Body -->
+      <rect x="-16" y="-7" width="32" height="14" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="1.8" filter="url(#glowSaffron)"/>
+      <!-- Windshield -->
+      <rect x="8" y="-5" width="5" height="10" rx="1.5" fill="#38bdf8"/>
+      <!-- Passenger Windows -->
+      <rect x="-3" y="-4" width="7" height="4" rx="1" fill="#f8fafc" opacity="0.8"/>
+      <rect x="-12" y="-4" width="7" height="4" rx="1" fill="#f8fafc" opacity="0.8"/>
+      <!-- Headlight Beam -->
+      <polygon points="14,-4 28,-10 28,10 14,4" fill="#fbbf24" opacity="0.35"/>
+    </g>
+  </g>
+
+  <!-- Footer Live Legend -->
+  <g transform="translate(50, 325)">
+    <circle cx="10" cy="0" r="5" fill="#f59e0b"/>
+    <text x="22" y="4" fill="#cbd5e1" font-size="10.5" font-weight="600">Line 1: Prelims Express</text>
+
+    <circle cx="210" cy="0" r="5" fill="#38bdf8"/>
+    <text x="222" y="4" fill="#cbd5e1" font-size="10.5" font-weight="600">Line 2: Mains Corridor</text>
+
+    <circle cx="410" cy="0" r="5" fill="#10b981"/>
+    <text x="422" y="4" fill="#cbd5e1" font-size="10.5" font-weight="600">Line 3: Personality Line</text>
+
+    <text x="720" y="4" fill="#64748b" font-size="10.5" font-weight="600">INTERACTIVE TRANSIT ENGINE v2.4</text>
+  </g>
+</svg>
